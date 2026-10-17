@@ -17,33 +17,37 @@
       padding: 0;
     }
 
+    html, body {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      min-height: 100vh;
-      min-height: -webkit-fill-available;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #0b132b url('IMG-20250524-WA0006.jpg') 25% center / cover no-repeat;
+      background: #0b132b url('IMG-20250524-WA0006.jpg') 25% center / cover no-repeat fixed;
       position: relative;
-      overflow-x: hidden;
-      padding: 16px;
+      padding: 20px 16px;
       color: #fff;
     }
 
-    /* Lapisan hitam dibuat sangat tipis agar latar belakang foto asli terlihat jelas & terang */
+    /* Lapisan tipis agar tulisan tetap terbaca jelas di atas foto */
     body::before {
       content: '';
-      position: absolute;
+      position: fixed;
       inset: 0;
-      background: linear-gradient(135deg, rgba(11, 19, 43, 0.25) 0%, rgba(28, 37, 65, 0.35) 100%);
+      background: rgba(11, 19, 43, 0.35);
       z-index: 1;
     }
 
     @media (max-width: 768px) {
       body {
         background-attachment: scroll;
-        background-position: 20% center;
+        background-position: 25% center;
       }
     }
 
@@ -56,7 +60,7 @@
 
     .floating-sparkle {
       position: absolute;
-      color: rgba(253, 224, 71, 0.7);
+      color: rgba(253, 224, 71, 0.8);
       animation: floatUp 7s linear infinite;
       font-size: 1.1rem;
     }
@@ -74,19 +78,15 @@
       }
     }
 
-    /* Kotak dibuat sangat transparan agar latar belakang menembus jelas */
+    /* Container tanpa latar belakang kotak (Bersih) */
     .container {
       position: relative;
       z-index: 10;
       max-width: 480px;
       width: 100%;
-      background: rgba(11, 19, 43, 0.22); /* Sangat transparan */
-      backdrop-filter: blur(5px); /* Blur dipertipis */
-      -webkit-backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 24px;
-      padding: 28px 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      background: transparent;
+      border: none;
+      box-shadow: none;
       text-align: center;
       animation: fadeIn 1s ease-out;
       margin: auto;
@@ -99,9 +99,9 @@
 
     .badge {
       display: inline-block;
-      padding: 5px 14px;
-      background: rgba(253, 224, 71, 0.2);
-      border: 1px solid rgba(253, 224, 71, 0.4);
+      padding: 6px 16px;
+      background: rgba(11, 19, 43, 0.5);
+      border: 1px solid rgba(253, 224, 71, 0.5);
       border-radius: 50px;
       color: #fef08a;
       font-size: 0.75rem;
@@ -109,15 +109,15 @@
       letter-spacing: 1.2px;
       text-transform: uppercase;
       margin-bottom: 14px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
     }
 
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: #ffffff;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.8);
       margin-bottom: 16px;
       line-height: 1.2;
     }
@@ -131,8 +131,8 @@
     }
 
     .cake {
-      font-size: 3.2rem;
-      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.4));
+      font-size: 3.5rem;
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,0.6));
       transition: transform 0.3s ease;
     }
 
@@ -165,30 +165,31 @@
     }
 
     .hint-text {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: #ffffff;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.9);
       margin-top: -6px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .message-box {
-      background: rgba(11, 19, 43, 0.35); /* Dibuat lebih transparan */
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 18px 16px;
+      background: rgba(11, 19, 43, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 22px 18px;
       min-height: 110px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
-      backdrop-filter: blur(3px);
+      margin-bottom: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .message-text {
-      font-size: 0.92rem;
-      line-height: 1.65;
+      font-size: 0.95rem;
+      line-height: 1.7;
       color: #ffffff;
       font-weight: 500;
       text-align: center;
@@ -212,24 +213,24 @@
 
     .btn-group {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 11px 20px;
+      padding: 12px 22px;
       border-radius: 50px;
       border: none;
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.25s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
       outline: none;
       flex: 1 1 140px;
       max-width: 200px;
@@ -238,48 +239,49 @@
     .btn-primary {
       background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
       color: #0f172a;
-      box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     }
 
     .btn-secondary {
-      background: rgba(11, 19, 43, 0.4);
+      background: rgba(11, 19, 43, 0.55);
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
 
     .footer-note {
-      margin-top: 20px;
-      font-size: 0.8rem;
+      margin-top: 24px;
+      font-size: 0.82rem;
       color: #ffffff;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.9);
     }
 
     .btn-secret {
       margin-top: 12px;
-      background: rgba(11, 19, 43, 0.3);
-      border: 1px dashed rgba(253, 224, 71, 0.6);
+      background: rgba(11, 19, 43, 0.5);
+      border: 1px dashed rgba(253, 224, 71, 0.7);
       color: #fef08a;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 20px;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       cursor: pointer;
       transition: all 0.3s ease;
       display: inline-block;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
     }
 
     .btn-secret:active {
       transform: scale(0.96);
     }
 
-    /* Modal Pop-up Responsif */
+    /* Modal Pop-up */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       z-index: 100;
       display: flex;
       justify-content: center;
@@ -296,17 +298,17 @@
     }
 
     .modal-card {
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(253, 224, 71, 0.3);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(253, 224, 71, 0.4);
       border-radius: 20px;
       padding: 24px 18px;
       max-width: 400px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
       transform: translateY(20px);
       transition: transform 0.3s ease;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
 
     .modal-overlay.active .modal-card {
@@ -323,7 +325,7 @@
     }
 
     .modal-text {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       line-height: 1.65;
       color: #e2e8f0;
       margin-bottom: 18px;
@@ -333,26 +335,11 @@
     .btn-close {
       background: rgba(255, 255, 255, 0.15);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       padding: 8px 22px;
       border-radius: 30px;
       font-size: 0.82rem;
       cursor: pointer;
-    }
-
-    @media (max-width: 380px) {
-      .container {
-        padding: 22px 16px;
-      }
-      h1 {
-        font-size: 1.6rem;
-      }
-      .cake {
-        font-size: 2.8rem;
-      }
-      .message-text {
-        font-size: 0.85rem;
-      }
     }
   </style>
 </head>
