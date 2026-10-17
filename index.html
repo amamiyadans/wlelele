@@ -38,11 +38,12 @@
       }
     }
 
-    body::before {
+   body::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(11, 19, 43, 0.75) 0%, rgba(28, 37, 65, 0.85) 100%);
+      /* Transparansi dikurangi dari 0.75/0.85 menjadi 0.3/0.45 agar foto jauh lebih terang */
+      background: linear-gradient(135deg, rgba(11, 19, 43, 0.3) 0%, rgba(28, 37, 65, 0.45) 100%);
       z-index: 1;
     }
 
