@@ -17,17 +17,25 @@
       padding: 0;
     }
 
-    body {
+   body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       min-height: 100vh;
+      min-height: -webkit-fill-available;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #0b132b url('IMG-20250524-WA0006.jpg') center/cover no-repeat fixed;
+      background: #0b132b url('IMG-20250524-WA0006.jpg') 25% center / cover no-repeat;
       position: relative;
       overflow-x: hidden;
-      padding: 20px;
+      padding: 16px;
       color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
+        background-position: 20% center;
+      }
     }
 
     body::before {
