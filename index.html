@@ -348,7 +348,7 @@
   <div class="particles" id="particles"></div>
 
   <!-- Audio Player untuk Lagu -->
-  <audio id="myAudio"</audio>
+  <audio id="myAudio"></audio>
 
   <div class="container">
     <div class="badge">Birthday Greeting 🎈</div>
@@ -435,43 +435,28 @@
       });
     }
 
-    // Pengaturan Musik Audio File
-  const playlist = [
-  "A Sorrowful Reunion - Reality Club _ Lirik Terjemahan Indonesia.mp3",
-  "Sammy Simorangkir - Kesedihanku (Official Music Video).mp3",
-  "Kahitna - Soulmate (Official Music Video).mp3"// 👈 Ganti dengan nama file lagu kedua kamu di GitHub
-];
+    // Playlist Lagu
+    const playlist = [
+      "A Sorrowful Reunion - Reality Club _ Lirik Terjemahan Indonesia.mp3",
+      "Sammy Simorangkir - Kesedihanku (Official Music Video).mp3",
+      "Kahitna - Soulmate (Official Music Video).mp3"
+    ];
 
-let currentTrackIndex = 0;
-const audio = document.getElementById("myAudio");
-let isPlaying = false;
+    let currentTrackIndex = 0;
+    const audio = document.getElementById("myAudio");
+    let isPlaying = false;
 
-// Set lagu pertama
-audio.src = playlist[currentTrackIndex];
+    // Set lagu pertama
+    audio.src = playlist[currentTrackIndex];
 
-// Otomatis pindah ke lagu berikutnya saat lagu selesai
-audio.addEventListener("ended", () => {
-  currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-  audio.src = playlist[currentTrackIndex];
-  audio.play();
-});
-
-function toggleMusic() {
-  if (isPlaying) {
-    audio.pause();
-    document.getElementById('musicText').textContent = "Putar Musik";
-    document.getElementById('musicIcon').textContent = "🎵";
-    isPlaying = false;
-  } else {
-    audio.play().then(() => {
-      document.getElementById('musicText').textContent = "Stop Musik";
-      document.getElementById('musicIcon').textContent = "⏸️";
-      isPlaying = true;
-    }).catch(err => {
-      console.log("Audio play error: ", err);
+    // Otomatis pindah ke lagu berikutnya saat lagu selesai
+    audio.addEventListener("ended", () => {
+      currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+      audio.src = playlist[currentTrackIndex];
+      audio.play();
     });
-  }
-}
+
+    function toggleMusic() {
       if (isPlaying) {
         audio.pause();
         document.getElementById('musicText').textContent = "Putar Musik";
