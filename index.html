@@ -183,8 +183,8 @@
       justify-content: center;
       margin-bottom: 22px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .message-text {
@@ -348,7 +348,9 @@
   <div class="particles" id="particles"></div>
 
   <!-- Audio Player untuk Lagu -->
-  <audio id="myAudio"></audio>
+  <audio id="myAudio" loop>
+    <source src="A Sorrowful Reunion - Reality Club _ Lirik Terjemahan Indonesia.mp3" type="audio/mpeg">
+  </audio>
 
   <div class="container">
     <div class="badge">Birthday Greeting 🎈</div>
@@ -435,26 +437,9 @@
       });
     }
 
-    // Playlist Lagu
-    const playlist = [
-      "A Sorrowful Reunion - Reality Club _ Lirik Terjemahan Indonesia.mp3",
-      "Sammy Simorangkir - Kesedihanku (Official Music Video).mp3",
-      "Kahitna - Soulmate (Official Music Video).mp3"
-    ];
-
-    let currentTrackIndex = 0;
+    // Pengaturan Musik Audio File
     const audio = document.getElementById("myAudio");
     let isPlaying = false;
-
-    // Set lagu pertama
-    audio.src = playlist[currentTrackIndex];
-
-    // Otomatis pindah ke lagu berikutnya saat lagu selesai
-    audio.addEventListener("ended", () => {
-      currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-      audio.src = playlist[currentTrackIndex];
-      audio.play();
-    });
 
     function toggleMusic() {
       if (isPlaying) {
